@@ -1,0 +1,18 @@
+//7.Reverse Integer
+class Solution {
+public:
+    int reverse(int x) {
+        int rem,rev=0;
+        while(x!=0)
+        {
+            rem=x%10;
+            x/=10;
+            if(rev>INT_MAX/10 || rev<INT_MIN/10) //this statement is necessary as it is giving run time error -->this condition implies the size of rev, as it can be greater than 32 bit or smaller than as we r reversing
+            {
+                return 0;
+            }
+            rev=rev*10+rem;
+        }
+        return rev;
+    }
+};
